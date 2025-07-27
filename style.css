@@ -1,0 +1,125 @@
+/* Globální styl pro celou stránku */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Orbitron', sans-serif;
+
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/52/Hubble2005-01-barred-spiral-galaxy-NGC1300.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: yellow !important;
+  text-shadow: 1px 1px 2px black;
+  min-height: 100vh;
+
+  display: block !important;  /* 💥 Ujistíme se, že tělo je viditelné */
+}
+
+/* Překryvné ztmavení pozadí */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* Zajistíme žlutý text pro všechny elementy */
+*, *::before, *::after {
+  color: yellow !important;
+  text-shadow: 1px 1px 2px black;
+  box-sizing: border-box;
+}
+
+/* Nadpisy */
+h1, h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Popisky a formuláře */
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+input[type="text"],
+select {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 10px;
+  color: yellow !important;
+}
+
+/* Seznam postav */
+#zoznam {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: block !important;
+}
+
+#zoznam li {
+  background-color: rgba(255, 255, 0, 0.1);
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: list-item !important;
+}
+
+#zoznam li:hover {
+  background-color: rgba(255, 255, 0, 0.25);
+}
+
+/* Detail postavy */
+#detail {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  max-width: 400px;
+  display: block !important;
+}
+
+/* Stránkování */
+#pagination {
+  margin-top: 20px;
+  display: block !important;
+}
+
+#pagination button {
+  background-color: rgba(255, 255, 0, 0.15);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: yellow;
+}
+
+#pagination button:hover {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+/* Responsivita */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  input,
+  select {
+    width: 100%;
+  }
+
+  #detail {
+    max-width: 100%;
+  }
+}
