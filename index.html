@@ -1,48 +1,48 @@
-
+<!DOCTYPE html>
+<html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>TEST</title>
-  <style>
-    body {
-      background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/52/Hubble2005-01-barred-spiral-galaxy-NGC1300.jpg");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      min-height: 100vh;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Wars Postavy</title>
 
-      color: yellow;
-      font-family: sans-serif;
-      font-size: 20px;
-      text-shadow: 1px 1px 2px black;
+  <!-- Orbitron font z Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-      margin: 0;
-      padding: 40px;
-    }
-  </style>
+  <!-- Vlastní styl -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <h1>Star Wars Postavy</h1>
-  
-    <label for="genderFilter">Filtrovat podle pohlaví:</label>
-    <select id="genderFilter">
-      <option value="all">Vše</option>
-      <option value="male">Muž</option>
-      <option value="female">Žena</option>
-      <option value="n/a">Bez pohlaví</option>
-      <option value="hermaphrodite">Hermafrodit</option>
-      <option value="unknown">Neznámé</option>
-    </select>
-  
-    <ul id="zoznam"></ul>
-  
-    <div id="pagination"></div>
-  
-    <div id="detail">
-      <h2>Detail postavy</h2>
-      <p>Vyberte postavu ze seznamu.</p>
-    </div>
-  
-    <script src="script.js"></script>
-  </body>
-  
+
+  <h1>Star Wars Postavy</h1>
+
+  <!-- Filtrování podle pohlaví -->
+  <label for="genderFilter">Filtrovat podle pohlaví:</label>
+  <select id="genderFilter">
+    <option value="all">Vše</option>
+    <option value="male">Muž</option>
+    <option value="female">Žena</option>
+    <option value="n/a">Bez pohlaví</option>
+    <option value="hermaphrodite">Hermafrodit</option>
+    <option value="unknown">Neznámé</option>
+  </select>
+
+  <!-- Vyhledávání podle jména -->
+  <label for="searchInput">Hledat jméno:</label>
+  <input type="text" id="searchInput" placeholder="Zadejte jméno postavy" />
+
+  <!-- Seznam postav -->
+  <ul id="zoznam"></ul>
+
+  <!-- Stránkování -->
+  <div id="pagination"></div>
+
+  <!-- Detail vybrané postavy -->
+  <div id="detail">
+    <h2>Detail postavy</h2>
+    <p>Vyberte postavu ze seznamu.</p>
+  </div>
+
+  <!-- Hlavní JS skript -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* Globální styl pro celou stránku */
+/* Orbitron font + základní styl */
 body {
   margin: 0;
   padding: 20px;
@@ -9,14 +9,11 @@ body {
   background-position: center;
   background-attachment: fixed;
 
-  color: yellow !important;
+  color: yellow;
   text-shadow: 1px 1px 2px black;
   min-height: 100vh;
-
-  display: block !important;  /* 💥 Ujistíme se, že tělo je viditelné */
 }
 
-/* Překryvné ztmavení pozadí */
 body::before {
   content: "";
   position: fixed;
@@ -25,20 +22,13 @@ body::before {
   z-index: -1;
 }
 
-/* Zajistíme žlutý text pro všechny elementy */
-*, *::before, *::after {
-  color: yellow !important;
-  text-shadow: 1px 1px 2px black;
-  box-sizing: border-box;
-}
-
 /* Nadpisy */
 h1, h2 {
   text-align: center;
   margin-top: 0;
 }
 
-/* Popisky a formuláře */
+/* Formuláře */
 label {
   font-weight: bold;
   display: block;
@@ -54,15 +44,14 @@ select {
   width: 100%;
   max-width: 300px;
   margin-bottom: 10px;
-  color: yellow !important;
+  color: yellow;
 }
 
-/* Seznam postav */
+/* Seznam */
 #zoznam {
   list-style: none;
   padding: 0;
   margin-top: 20px;
-  display: block !important;
 }
 
 #zoznam li {
@@ -71,7 +60,6 @@ select {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  display: list-item !important;
 }
 
 #zoznam li:hover {
@@ -85,13 +73,11 @@ select {
   border-radius: 8px;
   margin-top: 20px;
   max-width: 400px;
-  display: block !important;
 }
 
 /* Stránkování */
 #pagination {
   margin-top: 20px;
-  display: block !important;
 }
 
 #pagination button {
@@ -102,6 +88,7 @@ select {
   margin-right: 10px;
   cursor: pointer;
   color: yellow;
+  font-family: 'Orbitron', sans-serif;
 }
 
 #pagination button:hover {
