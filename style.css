@@ -32,7 +32,7 @@ body:not(.loaded) #detail {
   display: none;
 }
 
-/* Úvodní animace */
+/* Úvodní intro */
 #intro {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -44,7 +44,7 @@ body:not(.loaded) #detail {
   text-align: center;
 }
 
-/* Tlačítko přeskočení */
+/* Tlačítko Přeskočit */
 #skip-button {
   position: absolute;
   top: 20px;
@@ -64,15 +64,20 @@ body:not(.loaded) #detail {
   background: rgba(255, 255, 0, 0.3);
 }
 
-/* Animace titulku */
+/* Animace crawl (aktivuje se až po 3s) */
 .crawl {
   position: absolute;
   bottom: -100%;
   width: 100%;
-  animation: crawlAnim 25s linear forwards;
   font-size: 1.2em;
   line-height: 1.8;
   padding: 0 20px;
+  opacity: 0;
+  transform: none;
+}
+
+.crawl.active {
+  animation: crawlAnim 10s linear forwards;
 }
 
 @keyframes crawlAnim {
@@ -88,81 +93,7 @@ body:not(.loaded) #detail {
   }
 }
 
-/* Styl aplikace */
+/* Styl zbytku aplikace */
 label {
   font-weight: bold;
   display: block;
-  margin-top: 15px;
-}
-
-input[type="text"],
-select {
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  border-radius: 5px;
-  padding: 8px;
-  width: 100%;
-  max-width: 300px;
-  margin-bottom: 10px;
-  color: yellow;
-}
-
-#zoznam {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-}
-
-#zoznam li {
-  background-color: rgba(255, 255, 0, 0.1);
-  margin-bottom: 5px;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#zoznam li:hover {
-  background-color: rgba(255, 255, 0, 0.25);
-}
-
-#detail {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 20px;
-  max-width: 400px;
-}
-
-#pagination {
-  margin-top: 20px;
-}
-
-#pagination button {
-  background-color: rgba(255, 255, 0, 0.15);
-  border: none;
-  border-radius: 5px;
-  padding: 8px 14px;
-  margin-right: 10px;
-  cursor: pointer;
-  color: yellow;
-}
-
-#pagination button:hover {
-  background-color: rgba(255, 255, 0, 0.3);
-}
-
-/* Responzivita */
-@media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
-
-  input,
-  select {
-    width: 100%;
-  }
-
-  #detail {
-    max-width: 100%;
-  }
-}

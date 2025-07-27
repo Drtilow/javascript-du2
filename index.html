@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Star Wars Postavy</title>
 
-  <!-- Orbitron z Google Fonts -->
+  <!-- Orbitron font -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Vlastní styl -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- Úvodní animace -->
   <div id="intro">
-    <div class="crawl">
+    <button id="skip-button">Přeskočit intro</button>
+    <div class="crawl" id="crawl">
       <p>V dávné, předaleké galaxii...</p>
       <h2>STAR WARS: POSTAVY</h2>
       <p>
@@ -27,7 +26,7 @@
     </div>
   </div>
 
-  <!-- Hlavní obsah -->
+  <!-- Hlavní obsah aplikace -->
   <h1>Star Wars Postavy</h1>
 
   <label for="genderFilter">Filtrovat podle pohlaví:</label>
@@ -44,7 +43,6 @@
   <input type="text" id="searchInput" placeholder="Zadejte jméno postavy" />
 
   <ul id="zoznam"></ul>
-
   <div id="pagination"></div>
 
   <div id="detail">
@@ -52,15 +50,23 @@
     <p>Vyberte postavu ze seznamu.</p>
   </div>
 
-  <!-- Skript aplikace -->
+  <!-- Skripty -->
   <script src="script.js"></script>
-
-  <!-- Skript pro skrytí úvodu -->
   <script>
-    setTimeout(() => {
+    const skip = () => {
       document.getElementById("intro").style.display = "none";
       document.body.classList.add("loaded");
-    }, 25000);
+    };
+
+    document.getElementById("skip-button").addEventListener("click", skip);
+
+    // ⏳ Spustíme animaci po 3 vteřinách
+    setTimeout(() => {
+      document.getElementById("crawl").classList.add("active");
+    }, 3000);
+
+    // ⏱ Ukončíme animaci po 13 sekundách (3s delay + 10s animace)
+    setTimeout(skip, 13000);
   </script>
 </body>
 </html>
