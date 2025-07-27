@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Star Wars Postavy</title>
 
-  <!-- Orbitron font z Google Fonts -->
+  <!-- Orbitron z Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Vlastní styl -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- Úvodní animace -->
+  <div id="intro">
+    <div class="crawl">
+      <p>V dávné, předaleké galaxii...</p>
+      <h2>STAR WARS: POSTAVY</h2>
+      <p>
+        Projekt DU2<br>
+        Načítání postav z galaxie SWAPI<br>
+        S filtrováním, vyhledáváním a detaily<br>
+        Klikněte na postavu pro zobrazení informací
+      </p>
+    </div>
+  </div>
+
+  <!-- Hlavní obsah -->
   <h1>Star Wars Postavy</h1>
 
-  <!-- Filtrování podle pohlaví -->
   <label for="genderFilter">Filtrovat podle pohlaví:</label>
   <select id="genderFilter">
     <option value="all">Vše</option>
@@ -26,23 +40,27 @@
     <option value="unknown">Neznámé</option>
   </select>
 
-  <!-- Vyhledávání podle jména -->
   <label for="searchInput">Hledat jméno:</label>
   <input type="text" id="searchInput" placeholder="Zadejte jméno postavy" />
 
-  <!-- Seznam postav -->
   <ul id="zoznam"></ul>
 
-  <!-- Stránkování -->
   <div id="pagination"></div>
 
-  <!-- Detail vybrané postavy -->
   <div id="detail">
     <h2>Detail postavy</h2>
     <p>Vyberte postavu ze seznamu.</p>
   </div>
 
-  <!-- Hlavní JS skript -->
+  <!-- Skript aplikace -->
   <script src="script.js"></script>
+
+  <!-- Skript pro skrytí úvodu -->
+  <script>
+    setTimeout(() => {
+      document.getElementById("intro").style.display = "none";
+      document.body.classList.add("loaded");
+    }, 25000);
+  </script>
 </body>
 </html>

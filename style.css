@@ -1,19 +1,18 @@
-/* Orbitron font + základní styl */
+/* Globální styl */
 body {
   margin: 0;
   padding: 20px;
   font-family: 'Orbitron', sans-serif;
-
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/52/Hubble2005-01-barred-spiral-galaxy-NGC1300.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-
   color: yellow;
   text-shadow: 1px 1px 2px black;
   min-height: 100vh;
 }
 
+/* Ztmavení pozadí */
 body::before {
   content: "";
   position: fixed;
@@ -22,13 +21,74 @@ body::before {
   z-index: -1;
 }
 
-/* Nadpisy */
-h1, h2 {
-  text-align: center;
-  margin-top: 0;
+/* Skrytí hlavního obsahu během úvodu */
+body:not(.loaded) h1,
+body:not(.loaded) label,
+body:not(.loaded) select,
+body:not(.loaded) input,
+body:not(.loaded) ul,
+body:not(.loaded) #pagination,
+body:not(.loaded) #detail {
+  display: none;
 }
 
-/* Formuláře */
+/* Úvodní animace */
+#intro {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: black;
+  color: yellow;
+  z-index: 1000;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+}
+
+/* Tlačítko přeskočení */
+#skip-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 0, 0.1);
+  border: 2px solid yellow;
+  color: yellow;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1em;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background 0.3s;
+}
+
+#skip-button:hover {
+  background: rgba(255, 255, 0, 0.3);
+}
+
+/* Animace titulku */
+.crawl {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  animation: crawlAnim 25s linear forwards;
+  font-size: 1.2em;
+  line-height: 1.8;
+  padding: 0 20px;
+}
+
+@keyframes crawlAnim {
+  0% {
+    bottom: -100%;
+    transform: rotateX(20deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    bottom: 100%;
+    transform: rotateX(25deg) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* Styl aplikace */
 label {
   font-weight: bold;
   display: block;
@@ -47,7 +107,6 @@ select {
   color: yellow;
 }
 
-/* Seznam */
 #zoznam {
   list-style: none;
   padding: 0;
@@ -66,7 +125,6 @@ select {
   background-color: rgba(255, 255, 0, 0.25);
 }
 
-/* Detail postavy */
 #detail {
   background-color: rgba(0, 0, 0, 0.6);
   padding: 15px;
@@ -75,7 +133,6 @@ select {
   max-width: 400px;
 }
 
-/* Stránkování */
 #pagination {
   margin-top: 20px;
 }
@@ -88,14 +145,13 @@ select {
   margin-right: 10px;
   cursor: pointer;
   color: yellow;
-  font-family: 'Orbitron', sans-serif;
 }
 
 #pagination button:hover {
   background-color: rgba(255, 255, 0, 0.3);
 }
 
-/* Responsivita */
+/* Responzivita */
 @media (max-width: 600px) {
   body {
     padding: 10px;
